@@ -1,0 +1,131 @@
+<div class="payment my-5">
+  <h5>TOP REVIEWS</h5>
+  <P class="mb-4 text-grey">Top Reviews from India</P>
+  <div class="rating pr-5">
+    <div>
+      <div class="d-flex user">
+        <img src="assets/img/user1.jfif" alt="one">
+        <h6 class="my-auto">Amit Jadhav</h6>
+      </div>
+      <div class="rateicon my-3">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/yellow.png" alt="rate">
+      </div>
+      <h6>Another Fabulous IPhone ( IPhone 12, Blue 64GB)</h6>
+      <p class="mb-0">Another beauty from Apple. I was upgraded from iPhone X and it was great experience.</p>  
+    </div> 
+    <div class="mt-4">
+      <div class="d-flex user">
+        <img src="assets/img/user2.jfif" alt="one">
+        <h6 class="my-auto">Nitin Kadam</h6>
+      </div>
+      <div class="rateicon my-3">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/grey.png" alt="rate">
+      </div>
+      <h6>The Best</h6>
+    </div> 
+    <div class="mt-4">
+      <div class="d-flex user">
+        <img src="assets/img/user3.jfif" alt="one">
+        <h6 class="my-auto">Amit Jadhav</h6>
+      </div>
+      <div class="rateicon my-3">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/grey.png" alt="rate">
+        <img src="assets/img/grey.png" alt="rate">
+        <img src="assets/img/grey.png" alt="rate">
+      </div>
+      <h6>Another Fabulous IPhone ( IPhone 12, Blue 64GB)</h6>
+      <p class="mb-0">Another beauty from Apple. I was upgraded from iPhone X and it was great experience.</p>  
+    </div> 
+    <div class="mt-4">
+      <div class="d-flex user">
+        <img src="assets/img/user4.jfif" alt="one">
+        <h6 class="my-auto">Aditya Jadhav</h6>
+      </div>
+      <div class="rateicon my-3">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/yellow.png" alt="rate">
+        <img src="assets/img/grey.png" alt="rate">
+        <img src="assets/img/grey.png" alt="rate">
+      </div>
+      <h6>Another Fabulous IPhone ( IPhone 12, Blue 64GB)</h6>
+      <p class="mb-0">Another beauty from Apple. I was upgraded from iPhone X and it was great experience.</p>  
+    </div> 
+  </div>
+  <div class="paydetails mt-5">
+    <h5>PAYMENT DETAILS</h5>
+    <P class="text-grey">Complete your purchase by providing your payment details.</P>
+    <form #paymentForm="ngForm" (ngSubmit)="paymentForm.form.valid && onSubmit(paymentForm.value)" id="form">
+      <div class="row">
+        <div class="col-12">
+          <label for="inputEmai" class="form-label">
+            <h6 class="mb-0">Email address</h6>
+          </label>
+          <input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="regArray.email" minlength="6" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <small *ngIf="(email.touched || paymentForm.submitted) && email.errors?.required">Email is Required.</small>
+          <small *ngIf="(email.touched || paymentForm.submitted) && email.errors?.pattern">Enter valid Email.</small>        
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">
+            <h6 class="mb-0">Card Details</h6>
+          </label>
+          <div class="cardDate">
+            <input type="text" class="form-control" #cardDetail="ngModel" [(ngModel)]="regArray.cardDetail" name="cardDetail" pattern="([0-9]{2}[/]?){2}\s[0-9]{3,3}" required>
+          <small>MM/YY CVC</small>
+          </div>
+          <small *ngIf="(cardDetail.touched || paymentForm.submitted) && cardDetail.errors?.required">Card Details Required.</small>
+          <small *ngIf="(cardDetail.touched || paymentForm.submitted) && cardDetail.errors?.pattern">Enter valid detail as per format.</small>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">
+            <h6 class="mb-0">Card Holder Name</h6>
+          </label>
+          <input type="text" class="form-control" name="cardHolder" #name="ngModel" [(ngModel)]="regArray.name" minlength="4" maxlength="16" pattern="[A-Za-z]{1,16}" required>
+        <small *ngIf="(name.touched || paymentForm.submitted) && name.errors?.required">Name is Required.</small>
+        <small *ngIf="(name.touched || paymentForm.submitted) && name.errors?.minlength">Enter atleast 4 characters.</small>
+        <small *ngIf="(name.touched || paymentForm.submitted) && name.errors?.pattern"> Only characters allowed.</small>
+      </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">
+            <h6 class="mb-0">Billing address</h6>
+          </label>
+          <input type="text" class="form-control" name="billing" #billing="ngModel" [(ngModel)]="regArray.billing" minlength="6" maxlength="16" pattern="[a-zA-Z]{1,16}" required>
+          <small *ngIf="(billing.touched || paymentForm.submitted) && billing.errors?.required">Billing Address is Required.</small>
+          <small *ngIf="(billing.touched || paymentForm.submitted) && billing.errors?.minlength">Enter atleast 6 characters.</small>
+          <small *ngIf="(billing.touched || paymentForm.submitted) && billing.errors?.pattern"> Only characters allowed.</small>
+        </div>
+        <div class="col-6">
+          <label for="inputState" class="form-label">
+            <h6 class="mb-0">State</h6>
+          </label>
+          <select id="inputState" class="form-select" name="state" #state="ngModel" [(ngModel)]="regArray.state">
+            <option>Assam</option>
+            <option>Orissa</option>
+            <option>Punjab</option>
+            <option>Haryana</option>
+            <option>Kerala</option>
+          </select>
+          <small *ngIf="(state.touched || paymentForm.submitted) && state.errors?.required">State is Required.</small>
+        </div>
+        <div class="col-6">
+          <label for="inputZip" class="form-label">
+            <h6 class="mb-0">ZIP Code</h6>
+          </label>
+          <input type="text" class="form-control" name="inputZip" #inputZip="ngModel" [(ngModel)]="regArray.inputZip" minlength="6" pattern="[0-9]{1,6}" [disabled]="!state.valid" required>
+          <small *ngIf="(inputZip.touched || paymentForm.submitted) && inputZip.errors?.required">ZIP Code is Required.</small>
+          <small *ngIf="(inputZip.touched || paymentForm.submitted) && inputZip.errors?.pattern">Enter valid code.</small>
+        </div>
+        <div class="col-12 text-center mt-5">
+          <button type="submit" class="btn btn-primary w-100 mb-2" [disabled]="!paymentForm.valid">Pay ₹ 80,230.00</button>
+          <span class="pay-encryption"><i class="pi pi-lock"></i> Payments are secure and encrypted</span>
+        </div>
+      </div>
+  </form>
+  </div>
+</div>

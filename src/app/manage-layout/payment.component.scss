@@ -1,0 +1,120 @@
+$pink : #ce1351;
+$grey : #c1c1c1;
+$lightgrey : #f7f7f7;
+$darkgrey : #787878;
+$white : #ffff;
+
+.payment{
+    width: 62%;
+    margin-left: 15%;
+
+    @media only screen and (max-width: 768px) {
+        width: 90%;
+        margin-left: 8%;
+    }
+
+    .rating{
+        max-height: 350px;
+        overflow: auto;
+        padding-right: 60px;
+
+        .user img{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 1px solid $darkgrey;
+            margin-right: 15px;
+        }
+        .rateicon img{
+            width: 25px;
+        }
+        p{
+            font-size: 14px;
+        }
+
+    }
+.paydetails{
+
+    form{
+        padding-right: 80px;
+
+        .form-label{
+            margin-bottom: 0 !important;
+            margin-top: 30px;;
+        }
+
+        .form-control, .form-select{
+            border: none !important;
+            border-bottom: 1px solid $grey !important;
+            border-radius: unset !important;
+            padding-left: 0 !important;
+
+            &:focus{
+                outline: none;
+                box-shadow: none;
+            }
+
+            &.ng-dirty.ng-valid{
+                border-bottom: 1px solid green !important;
+            }
+            &.ng-invalid.ng-touched{
+                border-bottom: 1px solid red !important;
+            }    
+        } 
+
+        small {color: red;}      
+       
+        .cardDate{
+            position: relative;
+
+            small{
+                color: $grey;
+                position: absolute;
+                right: 0;
+                bottom: 5px;
+            }
+        }
+        button{
+            border-radius: 25px;
+            border: none;
+            background-color: $pink;
+            padding: 12px !important;
+
+            &:disabled{
+              pointer-events: unset !important;
+              cursor: not-allowed;  
+              opacity: unset !important;
+            }
+        }
+        .pay-encryption{
+            font-size: 13px;
+            font-weight: 500;
+
+            .pi-lock{
+                font-size: 12px;
+            }
+        }
+
+    }
+}
+ 
+//scrollbar
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: $grey;
+border-left: 9px solid $white;
+border-right: 9px solid $white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $pink; 
+    border-radius: 9px;
+    border-left: 7px solid $white;
+    border-right: 7px solid $white;
+}        
+}

@@ -1,0 +1,76 @@
+$pink: #ce1351;
+$grey: #c1c1c1;
+$lightgrey: #f7f7f7;
+$darkgrey: #787878;
+
+//Product css begins
+.product{
+    background-color: $lightgrey;
+
+    .layout{
+        width: 60%; 
+        background-color: $lightgrey;
+        .header{
+            padding-top: 4rem;
+        }
+
+        // carousel begins
+        .carousel{
+            .carousel-inner{
+                .carousel-item{
+                    height: 300px;
+                    border: 2px solid $pink;
+                }
+            }
+            .carousel-control-prev{
+                left: -35px !important;
+                opacity: 1 !important;
+
+                    &:hover{
+                        opacity: 1 !important;
+                    }
+            }
+            .carousel-control-next{
+                right: -35px !important;
+                opacity: 1 !important;
+
+                &:hover{
+                    opacity: 1 !important;
+                }
+            }
+            .pi-angle-left, .pi-angle-right{
+                color: $pink;
+                font-size: 40px !important;
+                background-color: $lightgrey;
+                padding: 15px;
+                border-radius: 50%;
+                font-weight: bold !important;
+            }
+        }
+        // carousel ends
+
+        //List begins
+        .list{
+            ul{
+                list-style-type: none;
+
+                li{
+                    color: $darkgrey;
+                    margin-bottom: 10px;
+                    font-size: 16px;
+
+                    &::before{
+                        content: "\2022";
+                        color: #000000;
+                        font-weight: bold;
+                        display: inline-block; 
+                        width: 1em;
+                        margin-left: -1em;
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+        //List ends 
+    }
+}
